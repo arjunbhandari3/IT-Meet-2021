@@ -61,10 +61,6 @@ class AuthController extends GetxController {
     );
   }
 
-  Future<void> sendEmailVerication(user) async {
-    await user.sendEmailVerification();
-  }
-
   Future<void> signOut() async {
     try {
       await _auth.signOut();
