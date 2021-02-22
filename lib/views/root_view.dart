@@ -6,29 +6,11 @@ import 'package:itmeet/core/controllers/root_controller.dart';
 import 'package:itmeet/core/controllers/auth_controller.dart';
 
 import 'package:itmeet/views/login_view.dart';
-import 'package:itmeet/views/home_view.dart';
-import 'package:itmeet/views/sponsors_view.dart';
-import 'package:itmeet/views/events_view.dart';
 
 import 'package:itmeet/views/widgets/drawer.dart';
 import 'package:itmeet/views/widgets/linearGradientMask.dart';
 
 class RootView extends GetView<AuthController> {
-  final List<Widget> bodyContent = [
-    HomeView(),
-    EventsView(),
-    SponsorsView(),
-    Text("News"),
-    Text("FAQ"),
-  ];
-  final List<String> titleContent = [
-    "Home",
-    "Events",
-    "Sponsors",
-    "News",
-    "FAQ"
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Obx(() {
