@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>695686316789-lplhlvol9gbu5oqfd03463makr0q44qc.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.695686316789-lplhlvol9gbu5oqfd03463makr0q44qc</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>695686316789-oac6trt7rvkq562a21de5mc5ifo3s6o3.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDENGd9zS0ZdME_FzybbFXIqDQQWv1hpq0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>695686316789</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kucc.itmeet</string>
+	<key>PROJECT_ID</key>
+	<string>itmeet-9afc5</string>
+	<key>STORAGE_BUCKET</key>
+	<string>itmeet-9afc5.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:695686316789:ios:5bfb8330669b2d2787bbbc</string>
+	<key>DATABASE_URL</key>
+	<string>https://itmeet-9afc5-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

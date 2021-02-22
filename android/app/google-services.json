@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "695686316789",
+    "firebase_url": "https://itmeet-9afc5-default-rtdb.firebaseio.com",
+    "project_id": "itmeet-9afc5",
+    "storage_bucket": "itmeet-9afc5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695686316789:android:eb9edf7f0742b10787bbbc",
+        "android_client_info": {
+          "package_name": "com.kucc.itmeet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695686316789-oac6trt7rvkq562a21de5mc5ifo3s6o3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kucc.itmeet",
+            "certificate_hash": "e557252e81a4648640a69ecb7ccefda4bf56b364"
+          }
+        },
+        {
+          "client_id": "695686316789-egkcpdb0gof8b1jb1kfh7a1lnqmedo2j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS7AWtKoPIZnWcGkEjRF7yC6icVDyJ5Lk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695686316789-egkcpdb0gof8b1jb1kfh7a1lnqmedo2j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "695686316789-lplhlvol9gbu5oqfd03463makr0q44qc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kucc.itmeet"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
