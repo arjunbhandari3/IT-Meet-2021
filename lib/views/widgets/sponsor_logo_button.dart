@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SocialMediaButton extends StatelessWidget {
-  final IconData icon;
+class SponsorLogoButton extends StatelessWidget {
+  final String logo;
   final String url;
 
-  const SocialMediaButton({
-    @required this.icon,
+  const SponsorLogoButton({
+    @required this.logo,
     @required this.url,
   });
 
@@ -23,19 +23,13 @@ class SocialMediaButton extends StatelessWidget {
     return GestureDetector(
       child: Container(
         margin: EdgeInsets.all(8.0),
-        height: 40.0,
-        width: 40.0,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          border: Border.all(
-            width: 2.0,
-            color: Colors.white,
-          ),
-        ),
-        child: Icon(
-          icon,
-          size: 20.0,
-          color: Colors.white,
+        height: 60.0,
+        width: 60.0,
+        color: Colors.transparent,
+        child: Image.asset(
+          logo ?? 'assets/images/google_logo.png',
+          height: 20,
+          width: 20,
         ),
       ),
       onTap: () async {

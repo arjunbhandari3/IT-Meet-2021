@@ -18,8 +18,9 @@ class RootController extends GetxController {
     EventsView(),
     SponsorsView(),
     NewsView(),
-    FaqView()
+    FAQView()
   ];
+
   List<String> _titleContents = ["Home", "Events", "Sponsors", "News", "FAQ"];
 
   Widget get currentView => _bodyContents[this._selectedIndex.value];

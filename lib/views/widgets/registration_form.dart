@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:itmeet/models/event_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-class RegistrationFormWidget extends StatelessWidget {
-  final String title;
-  final String formURL;
+class RegistrationFormView extends StatefulWidget {
+  final EventModel event;
 
-  const RegistrationFormWidget({
-    @required this.title,
-    @required this.formURL,
+  const RegistrationFormView({
+    @required this.event,
   });
+
+  @override
+  _RegistrationFormViewState createState() => _RegistrationFormViewState();
+}
+
+class _RegistrationFormViewState extends State<RegistrationFormView> {
+  bool isLoading = true;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +23,7 @@ class RegistrationFormWidget extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            title,
+            widget.event.name,
             style: GoogleFonts.poppins(
               fontSize: 23.0,
               color: Colors.white,
@@ -43,13 +49,27 @@ class RegistrationFormWidget extends StatelessWidget {
         ),
         backgroundColor: Colors.transparent,
         body: Container(
-          child: Column(
+          child: Stack(
             children: <Widget>[
-              Expanded(
-                child: Container(
-                  child: InAppWebView(initialUrl: formURL),
-                ),
+              InAppWebView(
+                initialUrl: widget.event.formURL,
+                onLoadStop: (InAppWebViewController controller, String url) {
+                  setState(() {
+                    isLoading = false;
+                  });
+                },
               ),
+              isLoading
+                  ? Container(
+                      color: Color(0xFF1A0551),
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.white),
+                        ),
+                      ),
+                    )
+                  : Container()
             ],
           ),
         ),

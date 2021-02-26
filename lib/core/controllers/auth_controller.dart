@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:itmeet/models/user_model.dart';
@@ -11,6 +12,9 @@ class AuthController extends GetxController {
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   String email, password, name;
+
+  ValueNotifier<bool> get loading => _loading;
+  ValueNotifier<bool> _loading = ValueNotifier(false);
 
   Rx<User> _user = Rx<User>();
 
@@ -25,6 +29,7 @@ class AuthController extends GetxController {
 
   void googleSignInMethod() async {
     try {
+      _loading.value = true;
       final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
       print(googleUser);
       GoogleSignInAuthentication googleSignInAuthentication =
@@ -38,12 +43,18 @@ class AuthController extends GetxController {
       await _auth.signInWithCredential(credential).then((user) {
         saveUser(user);
         Get.offAll(RootView());
+
+        _loading.value = false;
       });
     } catch (e) {
       print(e.message);
+
+      _loading.value = false;
       Get.snackbar(
         "Error",
-        e.message,
+        "Something went wrong. Please try again.",
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
         snackPosition: SnackPosition.BOTTOM,
       );
     }
@@ -69,7 +80,9 @@ class AuthController extends GetxController {
       print(e);
       Get.snackbar(
         "Error",
-        e.message,
+        "Something went wrong. Please try again.",
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
         snackPosition: SnackPosition.BOTTOM,
       );
     }

@@ -19,16 +19,16 @@ class RootView extends GetView<AuthController> {
           : GetBuilder<RootController>(
               builder: (rootController) => WillPopScope(
                 onWillPop: () async => false,
-                child: AnimatedContainer(
-                  duration: Duration(milliseconds: 500),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [Color(0xFF1A0551), Color(0xFF3E0765)],
+                child: SafeArea(
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 500),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                        colors: [Color(0xFF1A0551), Color(0xFF3E0765)],
+                      ),
                     ),
-                  ),
-                  child: SafeArea(
                     child: Scaffold(
                       appBar: AppBar(
                         title: Obx(

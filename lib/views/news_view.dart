@@ -10,8 +10,8 @@ class NewsView extends StatefulWidget {
 class _NewsViewState extends State<NewsView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return SingleChildScrollView(
+      child: Container(
         color: Colors.transparent,
       ),
     );

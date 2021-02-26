@@ -4,11 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class EventCard extends StatelessWidget {
   final Function onPressed;
-  final String image;
-  final String title;
+  final String logo;
+  final String name;
   final Color color;
 
-  const EventCard({Key key, this.onPressed, this.image, this.title, this.color})
+  const EventCard({Key key, this.onPressed, this.logo, this.name, this.color})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -32,26 +32,20 @@ class EventCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.asset(
-                image != null ? image : 'assets/images/logo.png',
+                logo != null ? logo : 'assets/images/logo.png',
                 width: Get.width * 0.4,
                 height: Get.height * 0.1,
               ),
               SizedBox(height: 5),
               Expanded(
                 child: Text(
-                  title,
+                  name,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w500,
                     fontSize: 18.0,
                     color: Colors.white,
                   ),
-                  // textAlign: TextAlign.center,
-                  // style: TextStyle(
-                  //   fontSize: 17,
-                  //   fontWeight: FontWeight.bold,
-                  //   color: Colors.white,
-                  // ),
                 ),
               ),
             ],

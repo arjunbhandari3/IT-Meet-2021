@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class FaqView extends StatefulWidget {
+class FAQView extends StatefulWidget {
   @override
-  _FaqViewState createState() => _FaqViewState();
+  _FAQViewState createState() => _FAQViewState();
 }
 
-class _FaqViewState extends State<FaqView> {
+class _FAQViewState extends State<FAQView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return SingleChildScrollView(
+      child: Container(
         color: Colors.transparent,
       ),
     );

@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:get/get.dart';
+import 'package:itmeet/views/widgets/sponsor_title.dart';
+import 'package:itmeet/views/widgets/sponsor_logo_button.dart';
 
 class SponsorsView extends StatefulWidget {
   @override
@@ -12,26 +12,234 @@ class _SponsorsViewState extends State<SponsorsView> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 20.0),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Container(
-        height: Get.height,
+        color: Colors.transparent,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            Expanded(
-              child: GridView.count(
-                primary: true,
-                padding: const EdgeInsets.all(15.0),
-                crossAxisSpacing: 50.0,
-                mainAxisSpacing: 20,
-                crossAxisCount: 3,
+            SponsorTitleWidget(title: "Platinum Sponsors"),
+            Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Image.asset('assets/images/google_logo.png'),
-                  Image.asset('assets/images/google_logo.png'),
-                  Image.asset('assets/images/google_logo.png'),
-                  Image.asset('assets/images/google_logo.png'),
-                  Image.asset('assets/images/google_logo.png'),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                ],
+              ),
+            ),
+            SponsorTitleWidget(title: "Gold Sponsors"),
+            Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                ],
+              ),
+            ),
+            SponsorTitleWidget(title: "Silver Sponsors"),
+            Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                ],
+              ),
+            ),
+            SponsorTitleWidget(title: "Bronze Sponsors"),
+            Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                ],
+              ),
+            ),
+            SponsorTitleWidget(title: "General Sponsors"),
+            Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                ],
+              ),
+            ),
+            SponsorTitleWidget(title: "Supporting Partners"),
+            Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                ],
+              ),
+            ),
+            SponsorTitleWidget(title: "Media Partners"),
+            Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
+                  SponsorLogoButton(
+                    logo: 'assets/images/google_logo.png',
+                    url: "https://www.google.com/",
+                  ),
                 ],
               ),
             ),

@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:itmeet/models/event_model.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:itmeet/views/widgets/registration_form.dart';
 
-class EventDetails extends StatelessWidget {
-  final String title;
-  final String url;
-  final String formURL;
+class EventDetails extends StatefulWidget {
+  final EventModel event;
 
   const EventDetails({
-    @required this.title,
-    @required this.url,
-    @required this.formURL,
+    @required this.event,
   });
+
+  @override
+  _EventDetailsState createState() => _EventDetailsState();
+}
+
+class _EventDetailsState extends State<EventDetails> {
+  bool isLoading = true;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,7 @@ class EventDetails extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            title,
+            widget.event.name,
             style: GoogleFonts.poppins(
               fontSize: 23.0,
               color: Colors.white,
@@ -47,41 +51,54 @@ class EventDetails extends StatelessWidget {
         ),
         backgroundColor: Colors.transparent,
         body: Container(
-          child: Column(
+          child: Stack(
             children: <Widget>[
-              Expanded(
-                child: Container(
-                  child: InAppWebView(initialUrl: url),
-                ),
+              InAppWebView(
+                initialUrl: widget.event.url,
+                onLoadStop: (InAppWebViewController controller, String url) {
+                  setState(() {
+                    isLoading = false;
+                  });
+                },
               ),
+              isLoading
+                  ? Container(
+                      color: Color(0xFF1A0551),
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.white),
+                        ),
+                      ),
+                    )
+                  : Container()
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            Get.to(RegistrationFormWidget(
-              title: title,
-              formURL: formURL,
-            ));
-          },
-          icon: Icon(
-            Icons.edit_outlined,
-            color: Colors.white,
-            size: 29,
-          ),
-          label: Text(
-            "Register Now",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(
-              fontWeight: FontWeight.w600,
-              fontSize: 24.0,
-              color: Colors.white,
-            ),
-          ),
-          backgroundColor: Color(0xFF345DE2),
-          elevation: 5,
-          splashColor: Colors.grey,
-        ),
+        floatingActionButton: !isLoading
+            ? FloatingActionButton.extended(
+                onPressed: () {
+                  Get.to(RegistrationFormView(event: widget.event));
+                },
+                icon: Icon(
+                  Icons.edit_outlined,
+                  color: Colors.white,
+                  size: 27,
+                ),
+                label: Text(
+                  "Register Now",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 22.0,
+                    color: Colors.white,
+                  ),
+                ),
+                backgroundColor: Color(0xFF345DE2),
+                elevation: 5,
+                splashColor: Colors.grey,
+              )
+            : Container(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
