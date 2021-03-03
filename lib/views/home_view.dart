@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_countdown_timer/index.dart';
 import 'package:itmeet/views/widgets/social_button.dart';
-
-import 'package:itmeet/views/widgets/drawer.dart';
+import 'package:itmeet/views/root_view.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -73,6 +73,7 @@ class _HomeViewState extends State<HomeView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            SizedBox(height: 15.0),
             CountdownTimer(
               endTime: endTime,
               widgetBuilder: (_, CurrentRemainingTime time) {
@@ -216,7 +217,6 @@ class _HomeViewState extends State<HomeView> {
                       );
               },
             ),
-            // SizedBox(height: 15.0),
             Text(
               'IT MEET 2021',
               textAlign: TextAlign.center,
@@ -249,7 +249,9 @@ class _HomeViewState extends State<HomeView> {
             Container(
               height: 60.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => RootView(), arguments: 1);
+                },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(80.0)),
                 padding: EdgeInsets.all(0.0),
@@ -325,6 +327,10 @@ class _HomeViewState extends State<HomeView> {
                 SocialMediaButton(
                   icon: FontAwesomeIcons.instagram,
                   url: "https://www.instagram.com/kuitmeet/",
+                ),
+                SocialMediaButton(
+                  icon: FontAwesomeIcons.twitter,
+                  url: "https://twitter.com/KUITMEET/",
                 ),
                 SocialMediaButton(
                   icon: FontAwesomeIcons.envelope,

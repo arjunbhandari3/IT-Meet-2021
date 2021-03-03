@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:itmeet/views/root_view.dart';
 
 class SplashView extends StatefulWidget {
@@ -29,7 +29,7 @@ class _SplashViewState extends State<SplashView>
     animationController = new AnimationController(
         vsync: this, duration: new Duration(seconds: 2));
     animation = new CurvedAnimation(
-        parent: animationController, curve: Curves.easeInOut);
+        parent: animationController, curve: Curves.decelerate);
 
     animation.addListener(() => this.setState(() {}));
     animationController.forward();
@@ -67,7 +67,28 @@ class _SplashViewState extends State<SplashView>
           children: <Widget>[
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                Text(
+                  'Kathmandu University \n Computer Club \n (KUCC)',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30.0,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 30.0),
+                Text(
+                  'Presents',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18.0,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 40.0),
                 FadeTransition(
                   opacity: animation,
                   child: Image.asset(
@@ -76,6 +97,7 @@ class _SplashViewState extends State<SplashView>
                     height: animation.value * 180,
                   ),
                 ),
+                SizedBox(height: 40.0),
               ],
             ),
             Column(
@@ -84,19 +106,10 @@ class _SplashViewState extends State<SplashView>
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(bottom: 40.0),
-                  child: SpinKitWave(
-                      type: SpinKitWaveType.end,
-                      size: 30,
-                      itemBuilder: (BuildContext context, int index) {
-                        return DecoratedBox(
-                          position: DecorationPosition.background,
-                          decoration: BoxDecoration(
-                            color: index.isEven
-                                ? Color(0xff2872ba)
-                                : Colors.blueGrey[100],
-                          ),
-                        );
-                      }),
+                  child: SpinKitThreeBounce(
+                    size: 30,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),

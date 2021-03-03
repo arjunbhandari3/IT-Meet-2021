@@ -24,7 +24,7 @@ class EventsView extends GetView<EventController> {
               child: GridView.builder(
                 shrinkWrap: true,
                 primary: false,
-                physics: NeverScrollableScrollPhysics(),
+                physics: BouncingScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: Get.width / (Get.height / 2.25),

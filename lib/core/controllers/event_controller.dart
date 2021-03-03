@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:itmeet/models/event_model.dart';
+import 'package:itmeet/core/services/event_services.dart';
 
 class EventController extends GetxController {
   ValueNotifier<bool> get loading => _loading;
@@ -21,6 +22,17 @@ class EventController extends GetxController {
     }
     update();
   }
+
+  // getEvents() async {
+  //   _loading.value = true;
+  //   EventService().getEvent().then((value) {
+  //     for (int i = 0; i < value.length; i++) {
+  //       _events.add(EventModel.fromJson(value[i].data()));
+  //       _loading.value = false;
+  //     }
+  //     update();
+  //   });
+  // }
 
   List eventList = [
     {

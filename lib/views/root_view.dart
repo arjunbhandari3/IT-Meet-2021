@@ -18,7 +18,7 @@ class RootView extends GetView<AuthController> {
           ? LoginView()
           : GetBuilder<RootController>(
               builder: (rootController) => WillPopScope(
-                onWillPop: () async => false,
+                onWillPop: () async => rootController.onWillPop(),
                 child: SafeArea(
                   child: AnimatedContainer(
                     duration: Duration(milliseconds: 500),
@@ -57,23 +57,10 @@ class RootView extends GetView<AuthController> {
                         centerTitle: true,
                         backgroundColor: Color(0xFF1A0551),
                         elevation: 0,
-                        actions: <Widget>[
-                          IconButton(
-                            icon: Icon(
-                              Icons.logout,
-                              size: 20,
-                            ),
-                            onPressed: () {
-                              controller.signOut();
-                            },
-                          ),
-                        ],
                       ),
                       drawer: DrawerWidget(),
                       backgroundColor: Colors.transparent,
-                      body: Obx(
-                        () => Center(child: rootController.currentView),
-                      ),
+                      body: Obx(() => rootController.currentView),
                       bottomNavigationBar: Obx(
                         () => BottomNavigationBar(
                           backgroundColor: Colors.white,
@@ -100,7 +87,7 @@ class RootView extends GetView<AuthController> {
                             ),
                             BottomNavigationBarItem(
                               icon: LinearGradientMask(
-                                child: Icon(Icons.event_available_rounded),
+                                child: Icon(Icons.event),
                               ),
                               label: "Events",
                             ),

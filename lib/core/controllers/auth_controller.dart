@@ -19,7 +19,7 @@ class AuthController extends GetxController {
   Rx<User> _user = Rx<User>();
 
   User get user => _user.value;
-  User setUser(User user) => _user.value = user;
+  set user(User user) => _user.value = user;
 
   @override
   void onInit() {
@@ -30,6 +30,15 @@ class AuthController extends GetxController {
   void googleSignInMethod() async {
     try {
       _loading.value = true;
+      Get.snackbar(
+        "Signing In",
+        "Loading",
+        showProgressIndicator: true,
+        duration: Duration(seconds: 5),
+        backgroundColor: Colors.black,
+        colorText: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+      );
       final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
       print(googleUser);
       GoogleSignInAuthentication googleSignInAuthentication =
