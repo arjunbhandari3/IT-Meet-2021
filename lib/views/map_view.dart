@@ -52,8 +52,8 @@ class MapView extends GetView<MapController> {
                     )
                   : GoogleMap(
                       mapType: MapType.normal,
-                      mapToolbarEnabled: false,
-                      zoomGesturesEnabled: true,
+                      myLocationButtonEnabled: true,
+                      myLocationEnabled: true,
                       markers: Set.from(controller.allMarkers),
                       initialCameraPosition: controller.cameraPosition,
                       onMapCreated: (GoogleMapController googleMapController) {

@@ -37,7 +37,6 @@ class EventsView extends GetView<EventController> {
                   return EventCard(
                     logo: controller.events[i].logo,
                     name: controller.events[i].name,
-                    color: i.isOdd ? Colors.lime : Colors.redAccent,
                     onPressed: () {
                       Get.to(EventDetails(event: controller.events[i]));
                     },

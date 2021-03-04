@@ -1,17 +1,20 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:itmeet/utils/themes.dart';
 
 class EventCard extends StatelessWidget {
   final Function onPressed;
   final String logo;
   final String name;
-  final Color color;
 
-  const EventCard({Key key, this.onPressed, this.logo, this.name, this.color})
+  const EventCard({Key key, this.onPressed, this.logo, this.name})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final color = colors[Random().nextInt(4)];
     return InkWell(
       borderRadius: BorderRadius.circular(20),
       onTap: onPressed,

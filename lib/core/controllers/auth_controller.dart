@@ -27,18 +27,25 @@ class AuthController extends GetxController {
     _user.bindStream(_auth.authStateChanges());
   }
 
+  void snackbar() async {
+    return _loading.value == true
+        ? Get.snackbar(
+            "Signing In",
+            "Loading",
+            showProgressIndicator: true,
+            backgroundColor: Colors.black,
+            colorText: Colors.white,
+            snackPosition: SnackPosition.BOTTOM,
+            snackStyle: SnackStyle.FLOATING,
+            duration: Duration(minutes: 5),
+          )
+        : null;
+  }
+
   void googleSignInMethod() async {
     try {
       _loading.value = true;
-      Get.snackbar(
-        "Signing In",
-        "Loading",
-        showProgressIndicator: true,
-        duration: Duration(seconds: 5),
-        backgroundColor: Colors.black,
-        colorText: Colors.white,
-        snackPosition: SnackPosition.BOTTOM,
-      );
+      snackbar();
       final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
       print(googleUser);
       GoogleSignInAuthentication googleSignInAuthentication =
@@ -51,9 +58,9 @@ class AuthController extends GetxController {
 
       await _auth.signInWithCredential(credential).then((user) {
         saveUser(user);
-        Get.offAll(RootView());
-
         _loading.value = false;
+        snackbar();
+        Get.offAll(RootView());
       });
     } catch (e) {
       print(e.message);

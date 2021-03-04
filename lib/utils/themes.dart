@@ -7,3 +7,10 @@ final ThemeData appThemeData = ThemeData(
   hintColor: Colors.black,
   accentColor: Colors.blue,
 );
+
+List<Color> colors = [
+  Colors.red,
+  Colors.blue,
+  Colors.green,
+  Colors.yellow,
+];

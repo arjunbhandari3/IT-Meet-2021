@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:itmeet/core/controllers/auth_controller.dart';
 import 'package:itmeet/views/root_view.dart';
 import 'package:itmeet/views/map_view.dart';
+import 'package:itmeet/views/developers_view.dart';
 
 class DrawerWidget extends GetWidget<AuthController> {
   @override
@@ -50,7 +51,7 @@ class DrawerWidget extends GetWidget<AuthController> {
           ),
           ListTile(
             onTap: () {
-              Get.to(() => RootView(), arguments: 0);
+              Get.to(RootView(), arguments: 0);
             },
             leading: Icon(
               Icons.home,
@@ -67,7 +68,7 @@ class DrawerWidget extends GetWidget<AuthController> {
           ),
           ListTile(
             onTap: () {
-              Get.to(() => RootView(), arguments: 1);
+              Get.to(RootView(), arguments: 1);
             },
             leading: Icon(
               Icons.event,
@@ -84,7 +85,7 @@ class DrawerWidget extends GetWidget<AuthController> {
           ),
           ListTile(
             onTap: () {
-              Get.to(() => RootView(), arguments: 2);
+              Get.to(RootView(), arguments: 2);
             },
             leading: Icon(
               Icons.loyalty,
@@ -147,7 +148,9 @@ class DrawerWidget extends GetWidget<AuthController> {
             ),
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              Get.to(() => DevelopersView());
+            },
             leading: Icon(
               Icons.code,
               color: Color(0xFF1A0551),

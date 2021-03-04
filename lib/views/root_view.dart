@@ -4,13 +4,16 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:itmeet/core/controllers/root_controller.dart';
 import 'package:itmeet/core/controllers/auth_controller.dart';
+import 'package:itmeet/core/controllers/connectivity_controller.dart';
 
 import 'package:itmeet/views/login_view.dart';
+import 'package:itmeet/views/noInternet_view.dart';
 
 import 'package:itmeet/views/widgets/drawer.dart';
 import 'package:itmeet/views/widgets/linearGradientMask.dart';
 
 class RootView extends GetView<AuthController> {
+  final ConnectivityController connectionController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Obx(() {
@@ -60,7 +63,11 @@ class RootView extends GetView<AuthController> {
                       ),
                       drawer: DrawerWidget(),
                       backgroundColor: Colors.transparent,
-                      body: Obx(() => rootController.currentView),
+                      body: Obx(
+                        () => connectionController.isOnline.value == true
+                            ? rootController.currentView
+                            : NoInternetView(),
+                      ),
                       bottomNavigationBar: Obx(
                         () => BottomNavigationBar(
                           backgroundColor: Colors.white,
