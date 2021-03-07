@@ -8,7 +8,7 @@ import 'package:itmeet/core/controllers/sponsor_controller.dart';
 class SponsorsView extends GetView<SponsorController> {
   @override
   Widget build(BuildContext context) {
-    return controller.loading.value
+    return controller.loading.value == true
         ? Container(
             color: Color(0xFF1A0551),
             child: Center(

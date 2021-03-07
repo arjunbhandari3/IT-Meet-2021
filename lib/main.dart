@@ -1,10 +1,10 @@
 import 'package:itmeet/core/bindings.dart';
-import 'package:itmeet/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:itmeet/utils/themes.dart';
+import 'package:itmeet/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,10 +31,10 @@ class MyApp extends StatelessWidget {
       title: 'IT Meet 2021',
       debugShowCheckedModeBanner: false,
       initialBinding: Binding(),
-      home: Scaffold(
-        body: SplashView(),
-      ),
-      theme: appThemeData,
+      defaultTransition: Transition.rightToLeft,
+      getPages: AppRoutes.routes,
+      initialRoute: '/splashView',
+      theme: theme,
     );
   }
 }

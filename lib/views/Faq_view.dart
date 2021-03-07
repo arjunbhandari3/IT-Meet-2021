@@ -6,7 +6,7 @@ import 'package:itmeet/core/controllers/faq_controller.dart';
 class FAQView extends GetView<FAQController> {
   @override
   Widget build(BuildContext context) {
-    return controller.loading.value
+    return controller.loading.value == true
         ? Container(
             color: Color(0xFF1A0551),
             child: Center(

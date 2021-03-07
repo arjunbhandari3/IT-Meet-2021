@@ -9,13 +9,14 @@ class NoInternetView extends GetView<ConnectivityController> {
     return SafeArea(
       child: Center(
         child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 10),
           color: Colors.white,
           child: Column(
             children: <Widget>[
               SizedBox(height: Get.height * 0.15),
               Container(
-                width: Get.width * 0.5,
-                height: Get.height * 0.3,
+                width: Get.width * 0.3,
+                height: Get.height * 0.2,
                 child: Image(
                   image: AssetImage("assets/images/no_internet.png"),
                 ),
@@ -37,7 +38,7 @@ class NoInternetView extends GetView<ConnectivityController> {
               ),
               Center(
                 child: Text(
-                  "Please Check your internet connection",
+                  "Please check your internet connection",
                   style: TextStyle(
                     color: Color(0xFF1A0551),
                     fontSize: 17,
@@ -57,22 +58,25 @@ class NoInternetView extends GetView<ConnectivityController> {
                   onPressed: () async {
                     AppSettings.openWIFISettings();
                   },
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    alignment: Alignment.center,
-                    child: ListTile(
-                      leading: Icon(
-                        Icons.settings,
-                        color: Colors.white,
-                      ),
-                      title: Text(
-                        "Go to Settings",
-                        style: TextStyle(
+                  child: ListTile(
+                    title: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.settings,
                           color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
                         ),
-                      ),
+                        SizedBox(width: 10),
+                        Text(
+                          "Go to Settings",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   shape: RoundedRectangleBorder(

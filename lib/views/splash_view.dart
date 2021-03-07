@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:itmeet/views/root_view.dart';
 
 class SplashView extends StatefulWidget {
   @override
@@ -41,7 +40,7 @@ class _SplashViewState extends State<SplashView>
   }
 
   void navigationPage() {
-    Get.off(RootView());
+    Get.offNamed('/rootView');
   }
 
   @override
@@ -52,68 +51,70 @@ class _SplashViewState extends State<SplashView>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-          colors: [Color(0xFF1A0551), Color(0xFF3E0765)],
+    return SafeArea(
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [Color(0xFF1A0551), Color(0xFF3E0765)],
+          ),
         ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'Kathmandu University \n Computer Club \n (KUCC)',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30.0,
-                    color: Colors.white,
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  SizedBox(height: 70.0),
+                  Text(
+                    'Kathmandu University \n Computer Club \n (KUCC)',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30.0,
+                      color: Colors.white,
+                      letterSpacing: 2,
+                    ),
                   ),
-                ),
-                SizedBox(height: 30.0),
-                Text(
-                  'Presents',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18.0,
-                    color: Colors.white,
+                  SizedBox(height: 30.0),
+                  Text(
+                    'Presents',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20.0,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-                SizedBox(height: 40.0),
-                FadeTransition(
-                  opacity: animation,
-                  child: Image.asset(
-                    'assets/images/logo.png',
-                    width: animation.value * 180,
-                    height: animation.value * 180,
+                  SizedBox(height: 80.0),
+                  FadeTransition(
+                    opacity: animation,
+                    child: Image.asset(
+                      'assets/images/logo.png',
+                      width: animation.value * 180,
+                      height: animation.value * 180,
+                    ),
                   ),
-                ),
-                SizedBox(height: 40.0),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(bottom: 40.0),
-                  child: SpinKitThreeBounce(
-                    size: 30,
-                    color: Colors.white,
+                  SizedBox(height: 40.0),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 40.0),
+                    child: SpinKitThreeBounce(
+                      size: 30,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

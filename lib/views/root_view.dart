@@ -14,6 +14,7 @@ import 'package:itmeet/views/widgets/linearGradientMask.dart';
 
 class RootView extends GetView<AuthController> {
   final ConnectivityController connectionController = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Obx(() {

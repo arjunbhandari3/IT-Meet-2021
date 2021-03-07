@@ -8,7 +8,7 @@ import 'package:itmeet/core/controllers/event_controller.dart';
 class EventsView extends GetView<EventController> {
   @override
   Widget build(BuildContext context) {
-    return controller.loading.value
+    return controller.loading.value == true
         ? Container(
             color: Color(0xFF1A0551),
             child: Center(

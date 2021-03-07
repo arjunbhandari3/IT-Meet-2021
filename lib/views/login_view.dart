@@ -81,7 +81,7 @@ class LoginView extends GetView<AuthController> {
                             ],
                           ),
                           SizedBox(height: 20),
-                          controller.loading.value
+                          controller.loading.value == true
                               ? CircularProgressIndicator(
                                   valueColor: AlwaysStoppedAnimation<Color>(
                                       Colors.white),

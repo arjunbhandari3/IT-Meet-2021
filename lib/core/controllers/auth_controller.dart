@@ -4,8 +4,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:itmeet/models/user_model.dart';
 import 'package:itmeet/core/services/user_services.dart';
-import 'package:itmeet/views/login_view.dart';
-import 'package:itmeet/views/root_view.dart';
 
 class AuthController extends GetxController {
   GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
@@ -60,7 +58,7 @@ class AuthController extends GetxController {
         saveUser(user);
         _loading.value = false;
         snackbar();
-        Get.offAll(RootView());
+        Get.offAllNamed('/rootView');
       });
     } catch (e) {
       print(e.message);
@@ -91,7 +89,7 @@ class AuthController extends GetxController {
   Future<void> signOut() async {
     try {
       await _auth.signOut();
-      Get.off(LoginView());
+      Get.offNamed('/loginView');
     } catch (e) {
       print(e);
       Get.snackbar(

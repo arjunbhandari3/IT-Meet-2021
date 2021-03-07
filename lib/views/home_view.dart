@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_countdown_timer/index.dart';
 import 'package:itmeet/views/widgets/social_button.dart';
-import 'package:itmeet/views/root_view.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -14,7 +13,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   YoutubePlayerController _controller;
-  int endTime = DateTime.parse("2021-03-05 00:00:00Z").millisecondsSinceEpoch;
+  int endTime = DateTime.parse("2021-04-05 00:00:00Z").millisecondsSinceEpoch;
 
   @override
   void initState() {
@@ -250,7 +249,7 @@ class _HomeViewState extends State<HomeView> {
               height: 60.0,
               child: RaisedButton(
                 onPressed: () {
-                  Get.to(() => RootView(), arguments: 1);
+                  Get.toNamed('/rootView', arguments: 1);
                 },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(80.0)),
