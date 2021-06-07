@@ -28,6 +28,6 @@ class ConnectivityController extends GetxController {
   void onClose() {
     super.onClose();
 
-    if (subscription != null) subscription.cancel();
+    subscription?.cancel();
   }
 }
